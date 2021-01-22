@@ -1,0 +1,13 @@
+durasi singkat
+{
+    "access_token": "IGQVJWZAXVzRHczNGpCNExkc0g2a2ZAoWnRFSnZAaaFhDQ0lJMVZAxR0pPeGtCenVGWUFSUGsxT256alVJZAlRuRUxkWHhmZAVpuUjYzdjlfV3BBNFFNdWs5S2l3NWZAIem9PUmNMTmh2eklIcGR4SW1wNWphLWJIMUhOM25RT1lz",
+    "user_id": 17841408589787032
+}
+
+
+durasi lama
+{
+    "access_token": "IGQVJXTHdlakliWVkzbG9GVzNqNlhiZAWhuUExhdnBtREpXMEM3QTRXcmhWbDJ3XzVzaFBBQ1FoUW9KOU00TmdTblNvbDZASSURKSFFFTDlfWUFOVVRKUGUxX0NmR1RMRnVFTmRuSVBn",
+    "token_type": "bearer",
+    "expires_in": 5133590
+}
