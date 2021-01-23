@@ -4,7 +4,7 @@
   import { formatUang } from "../../costumLib";
   import { getData, dataAll } from "../../Dummy";
   import ProductCards from "../../utils/ProdukCards.svelte";
-  import ProdukCards from "../../utils/ProdukCards.svelte";
+  import ProdukCards from "../../utils/ProdukCardsDetail.svelte";
   import NavShow from "../../components/NavShow.svelte";
 
   let param = $params.id;
