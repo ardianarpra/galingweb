@@ -1,8 +1,10 @@
 <script>
   import { formatUang } from "../costumLib";
   import { onMount } from "svelte";
+  import { url, isActive } from "@sveltech/routify";
   import Id from "../pages/detail/[id].svelte";
 
+  export let urlPath;
   export let data;
   export let dummydata;
   let path;
@@ -20,7 +22,7 @@
       {#each dummydata as data, i}
         {#if data.promo.value}
           <div class="swiper-slide animate__animated animate__fadeIn">
-            <a href="detail/{data.Id}">
+            <a href="{urlPath}/{data.id}">
               <div class="card-produk">
                 <div class="ribbon ribbon-top-right">
                   <span class="bg-danger">PROMO</span>
@@ -59,7 +61,7 @@
             </a>
           </div>
         {:else}
-          <a href="detail/{data.Id}">
+          <a href="{urlPath}/{data.id}">
             <div class="card-produk">
               <div class="card-img">
                 <img src={data.gambar} alt={data.nama} style="height:100%" />
