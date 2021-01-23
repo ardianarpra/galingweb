@@ -1,10 +1,8 @@
 <script>
   import { formatUang } from "../costumLib";
   import { onMount } from "svelte";
-  import { url, isActive } from "@sveltech/routify";
   import Id from "../pages/detail/[id].svelte";
 
-  export let urlPath;
   export let data;
   export let dummydata;
   let path;
@@ -15,6 +13,74 @@
     console.log(window.location.pathname);
   });
 </script>
+
+<section>
+  <div class="container">
+    <div class="cards-produk">
+      {#each dummydata as data, i}
+        {#if data.promo.value}
+          <div class="swiper-slide animate__animated animate__fadeIn">
+            <a href="detail/{data.Id}">
+              <div class="card-produk">
+                <div class="ribbon ribbon-top-right">
+                  <span class="bg-danger">PROMO</span>
+                </div>
+                <div class="card-img">
+                  <img src={data.gambar} alt={data.nama} style="" />
+                </div>
+                <div class="text-produk">
+                  <div class="judul-produk">{data.nama}</div>
+                  <div class="wrap-price">
+                    {#if data.promo.type == "price"}
+                      <div class="harga-straight">
+                        Rp.
+                        {formatUang(data.harga)}
+                      </div>
+                      <div class="harga-promo text-danger">
+                        Rp.
+                        {formatUang(data.promo.desc)}
+                      </div>
+                    {:else if data.promo.type == "text"}
+                      <div class="harga">Rp. {formatUang(data.harga)}</div>
+                      <div class="text-promo text-danger">
+                        {data.promo.desc}
+                      </div>
+                    {:else}
+                      <div class="harga">Rp. {formatUang(data.harga)}</div>
+                    {/if}
+                  </div>
+                </div>
+                <div class="button-produk">
+                  <button class="btn btn-danger" style="width:100%"
+                    >Detail</button
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+        {:else}
+          <a href="detail/{data.Id}">
+            <div class="card-produk">
+              <div class="card-img">
+                <img src={data.gambar} alt={data.nama} style="height:100%" />
+              </div>
+
+              <div class="text-produk">
+                <div class="judul-produk">{data.nama}</div>
+                <div class="harga">Rp. {formatUang(data.harga)}</div>
+              </div>
+
+              <div class="button-produk">
+                <button class="btn btn-danger" style="width:100%">Detail</button
+                >
+              </div>
+            </div>
+          </a>
+        {/if}
+      {/each}
+    </div>
+  </div>
+</section>
 
 <style>
   .cards-produk {
@@ -159,72 +225,3 @@
     color: black;
   }
 </style>
-
-<section>
-  <div class="container">
-    <div class="cards-produk">
-      {#each dummydata as data, i}
-        {#if data.promo.value}
-          <div class="swiper-slide animate__animated animate__fadeIn">
-            <a href="{urlPath}/{data.id}">
-              <div class="card-produk">
-                <div class="ribbon ribbon-top-right">
-                  <span class="bg-danger">PROMO</span>
-                </div>
-                <div class="card-img">
-                  <img src={data.gambar} alt={data.nama} style="" />
-                </div>
-                <div class="text-produk">
-                  <div class="judul-produk">{data.nama}</div>
-                  <div class="wrap-price">
-                    {#if data.promo.type == 'price'}
-                      <div class="harga-straight">
-                        Rp.
-                        {formatUang(data.harga)}
-                      </div>
-                      <div class="harga-promo text-danger">
-                        Rp.
-                        {formatUang(data.promo.desc)}
-                      </div>
-                    {:else if data.promo.type == 'text'}
-                      <div class="harga">Rp. {formatUang(data.harga)}</div>
-                      <div class="text-promo text-danger">
-                        {data.promo.desc}
-                      </div>
-                    {:else}
-                      <div class="harga">Rp. {formatUang(data.harga)}</div>
-                    {/if}
-                  </div>
-                </div>
-                <div class="button-produk">
-                  <button
-                    class="btn btn-danger"
-                    style="width:100%">Detail</button>
-                </div>
-              </div>
-            </a>
-          </div>
-        {:else}
-          <a href="{urlPath}/{data.id}">
-            <div class="card-produk">
-              <div class="card-img">
-                <img src={data.gambar} alt={data.nama} style="height:100%" />
-              </div>
-
-              <div class="text-produk">
-                <div class="judul-produk">{data.nama}</div>
-                <div class="harga">Rp. {formatUang(data.harga)}</div>
-              </div>
-
-              <div class="button-produk">
-                <button
-                  class="btn btn-danger"
-                  style="width:100%">Detail</button>
-              </div>
-            </div>
-          </a>
-        {/if}
-      {/each}
-    </div>
-  </div>
-</section>

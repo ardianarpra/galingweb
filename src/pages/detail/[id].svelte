@@ -239,7 +239,7 @@
         <div class="garis-bawah">""</div>
       </div>
 
-      <ProdukCards urlPath={$url("../")} {dummydata} />
+      <ProdukCards {dummydata} />
     </div>
   </div>
 </section>
