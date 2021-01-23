@@ -3,6 +3,7 @@
   import { onMount } from "svelte";
   import { params } from "@sveltech/routify";
   import ProdukCards from "../../utils/ProdukCards.svelte";
+  import NavShow from "../../components/NavShow.svelte";
 
   function loadData() {
     alert("Tidak Ada Penambahan Data");
@@ -16,7 +17,85 @@
   });
 </script>
 
+<NavShow />
+<section>
+  <div class="container mt-2">
+    <div class="breadcrumbs">
+      <div class="text-konten">
+        Home / Produk
+        {#if $params.kat == !undefined}
+          /
+          <span class="current-indicator">{$params.kat}</span>
+        {/if}
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="banner">
+      <img src="../assets/img/banner/cemilan.png" width="100%" alt="" />
+    </div>
+  </div>
+  <!-- 
+	<div class="animate__animated animate__backInLeft animate__delay-2s">Example</div> -->
+
+  <div class="container content">
+    <div class="indicators">
+      <div class="filter">
+        <div class="text-indicator">filter dari :</div>
+        <select class="">
+          <option value="" selected>Semua</option>
+          <option value="">Manis</option>
+          <option value="">Pedas</option>
+          <option value="">Gurih</option>
+        </select>
+      </div>
+
+      <div class="sorting">
+        <div class="text-indicator">urutkan dari :</div>
+        <select class="">
+          <option value="" selected>Terlaris</option>
+          <option value="">Termurah</option>
+          <option value="">Termahal</option>
+        </select>
+      </div>
+
+      <div class="searching">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Cari ..."
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button"
+              ><i class="fa fa-search" /></button
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ProdukCards urlPath="detail" {dummydata} />
+
+    {#if dummydata.length >= 10}
+      <div class="button-load">
+        <button class="btn btn-info btn-warning" on:click={loadData}
+          >Load More</button
+        >
+      </div>
+    {/if}
+  </div>
+</section>
+
 <style>
+  section {
+    padding-top: 4rem;
+    background-color: #fff;
+  }
+
   select {
     /* outline: none; */
     border: none;
@@ -112,71 +191,3 @@
     color: black;
   }
 </style>
-
-<section>
-  <div class="container mt-2">
-    <div class="breadcrumbs">
-      <div class="text-konten">
-        Home / Produk
-        {#if $params.kat == !undefined}
-          /
-          <span class="current-indicator">{$params.kat}</span>
-        {/if}
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="banner">
-      <img src="../assets/img/banner/cemilan.png" width="100%" alt="" />
-    </div>
-  </div>
-  <!-- 
-	<div class="animate__animated animate__backInLeft animate__delay-2s">Example</div> -->
-
-  <div class="container content">
-    <div class="indicators">
-      <div class="filter">
-        <div class="text-indicator">filter dari :</div>
-        <select class="">
-          <option value="" selected>Semua</option>
-          <option value="">Manis</option>
-          <option value="">Pedas</option>
-          <option value="">Gurih</option>
-        </select>
-      </div>
-
-      <div class="sorting">
-        <div class="text-indicator">urutkan dari :</div>
-        <select class="">
-          <option value="" selected>Terlaris</option>
-          <option value="">Termurah</option>
-          <option value="">Termahal</option>
-        </select>
-      </div>
-
-      <div class="searching">
-        <div class="input-group">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Cari ..."
-            aria-label="Recipient's username"
-            aria-describedby="basic-addon2" />
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button"><i
-                class="fa fa-search" /></button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <ProdukCards urlPath="detail" {dummydata} />
-
-    {#if dummydata.length >= 10}
-      <div class="button-load">
-        <button class="btn btn-info btn-warning" on:click={loadData}>Load More</button>
-      </div>
-    {/if}
-  </div>
-</section>
