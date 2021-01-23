@@ -235,7 +235,7 @@
     <div class="text">rekomendasi buat kamu</div>
     <div class="garis-bawah">""</div>
   </div>
-  <ProdukCards urlPath="detail" {dummydata} />
+  <ProdukCards {dummydata} />
   <div class="button-load">
     <button class="btn btn-info btn-warning" on:click={loadData}>
       Load More</button
@@ -382,6 +382,5 @@
 		</div>
 	{/if}
 {/each} -->
-
 <style src="./style.css">
 </style>

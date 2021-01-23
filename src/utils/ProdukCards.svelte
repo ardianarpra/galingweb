@@ -22,7 +22,7 @@
       {#each dummydata as data, i}
         {#if data.promo.value}
           <div class="swiper-slide animate__animated animate__fadeIn">
-            <a href="{urlPath}/{data.id}">
+            <a href="detail/{data.id}">
               <div class="card-produk">
                 <div class="ribbon ribbon-top-right">
                   <span class="bg-danger">PROMO</span>
@@ -61,7 +61,7 @@
             </a>
           </div>
         {:else}
-          <a href="{urlPath}/{data.id}">
+          <a href="detail/{data.id}">
             <div class="card-produk">
               <div class="card-img">
                 <img src={data.gambar} alt={data.nama} style="height:100%" />
