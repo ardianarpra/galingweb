@@ -477,7 +477,7 @@
       <div class="cols-1">
         <div class="img-center">
           <img
-            src="https://firebasestorage.googleapis.com/v0/b/galing-d32b2.appspot.com/o/brand%20(1).png?alt=media&token=eafa1d7b-2ae2-43e8-9070-972d9b71b421"
+            src="https://firebasestorage.googleapis.com/v0/b/galing-d32b2.appspot.com/o/brand%20(2).png?alt=media&token=5ef2c2fc-776e-4f42-b3cd-c25fe8248f51"
             alt="Galing Logo"
             height="75px"
             class="brand-img" />
